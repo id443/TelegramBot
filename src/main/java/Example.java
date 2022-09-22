@@ -31,12 +31,28 @@ public class Example extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         Message msg = update.getMessage(); // Это нам понадобится
         String txt = msg.getText();
-        if (txt.equals("/start")) {
-            try {
-                sendMsg(msg, "Hello, world! This is simple bot!");
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
+        switch (txt) {
+            case "/start":
+                try {
+                    sendMsg(msg, "Hello, world! This is simple bot!");
+                    break;
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            case "/Hi":
+                try {
+                    sendMsg(msg, "Nice to meet you!");
+                    break;
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            case "v":
+                try {
+                    sendMsg(msg, "Viva!");
+                    break;
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
         }
     }
 
